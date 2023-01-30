@@ -1,9 +1,10 @@
 import streamlit as st
 import transformers
+import sqlite3
 
 # Connect to database
-from sqlalchemy import create_engine
-engine = create_engine('sqlite:///tasks.db')
+connection = sqlite3.connect("task.db")
+
 
 # Load pre-trained model
 model = transformers.AutoModelForSequenceClassification.from_pretrained("bert-base-cased")
